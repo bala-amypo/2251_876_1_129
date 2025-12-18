@@ -41,5 +41,6 @@ public class Cart {
         this.updatedAt = updatedAt;
     }
     public Cart() {
+        
     }
 }
