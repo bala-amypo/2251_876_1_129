@@ -9,8 +9,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(unique = true)
-    private String sku;
+    @Column(nullable = false , unique = true)    private String sku;
     private String name;
     private String category;
     private BigDecimal price;
