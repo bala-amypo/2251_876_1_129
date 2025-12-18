@@ -41,6 +41,6 @@ public class Cart {
         this.updatedAt = updatedAt;
     }
     public Cart() {
-        
+        this.createdAt = TimeStamp.now()
     }
 }
