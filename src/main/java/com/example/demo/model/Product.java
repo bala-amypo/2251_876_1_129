@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.security.Timestamp;
 import jakarta.persistence.*;
 
+@Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
