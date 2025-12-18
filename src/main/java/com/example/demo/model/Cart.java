@@ -1,7 +1,6 @@
 package com.example.demo.entity;
 
 import java.security.Timestamp;
-
 import jakarta.persistence.*;
 
 public class Cart {
