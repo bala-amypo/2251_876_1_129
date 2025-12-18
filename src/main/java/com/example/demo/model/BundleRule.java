@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import jakarta.persistence.*;
 
+@Entity
+@Table(name = "bundleRule")
 public class BundleRule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,6 +3,7 @@ package com.example.demo.model;
 import java.security.Timestamp;
 import jakarta.persistence.*;
 
+@Entity
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
