@@ -20,11 +20,7 @@ public class ProductController {
     public ProductController(ProductServiceImpl productService) {
         this.productService = productService;
     }
-    
-    /**
-     * Create a new product
-     * POST /api/products
-     */
+
     @PostMapping
     @Operation(summary = "Create a new product", description = "Creates a new product with SKU, name, price, and category")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
@@ -32,21 +28,13 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
     
-    /**
-     * Update an existing product
-     * PUT /api/products/{id}
-     */
     @PutMapping("/{id}")
     @Operation(summary = "Update a product", description = "Updates product name, price, or category")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
         Product updated = productService.updateProduct(id, product);
         return ResponseEntity.ok(updated);
     }
-    
-    /**
-     * Get product by ID
-     * GET /api/products/{id}
-     */
+
     @GetMapping("/{id}")
     @Operation(summary = "Get product by ID", description = "Retrieves a single product by its ID")
     public ResponseEntity<Product> getProduct(@PathVariable Long id) {
