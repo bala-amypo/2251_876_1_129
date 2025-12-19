@@ -42,10 +42,7 @@ public class ProductController {
         return ResponseEntity.ok(product);
     }
     
-    /**
-     * Get all products
-     * GET /api/products
-     */
+
     @GetMapping
     @Operation(summary = "Get all products", description = "Retrieves a list of all products")
     public ResponseEntity<List<Product>> getAllProducts() {
