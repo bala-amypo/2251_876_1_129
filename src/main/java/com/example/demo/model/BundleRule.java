@@ -20,7 +20,6 @@ public class BundleRule {
     @Column(nullable = false)
     private Boolean active = true;
     
-    // Constructors
     public BundleRule() {}
     
     public BundleRule(String ruleName, String requiredProductIds, Double discountPercentage) {
@@ -30,7 +29,6 @@ public class BundleRule {
         this.active = true;
     }
     
-    // Getters and Setters
     public Long getId() {
         return id;
     }
