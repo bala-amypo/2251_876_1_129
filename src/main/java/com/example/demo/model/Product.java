@@ -30,7 +30,7 @@ public class Product {
     private LocalDateTime createdAt;
     
     @PrePersist
-    protected void onCreate() {
+    protected void onCreate() {333333333333333333333333333333333333333333333333333
         createdAt = LocalDateTime.now();
     }
     
