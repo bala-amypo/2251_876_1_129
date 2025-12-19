@@ -30,7 +30,6 @@ public class DiscountApplication {
         appliedAt = LocalDateTime.now();
     }
     
-    // Constructors
     public DiscountApplication() {}
     
     public DiscountApplication(Cart cart, BundleRule bundleRule, BigDecimal discountAmount) {
@@ -38,8 +37,7 @@ public class DiscountApplication {
         this.bundleRule = bundleRule;
         this.discountAmount = discountAmount;
     }
-    
-    // Getters and Setters
+
     public Long getId() {
         return id;
     }
