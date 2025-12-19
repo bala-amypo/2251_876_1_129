@@ -2,7 +2,6 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "bundle_rules")
 public class BundleRule {
     
     @Id

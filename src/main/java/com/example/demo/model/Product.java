@@ -5,7 +5,6 @@
     import java.time.LocalDateTime;
 
     @Entity
-    @Table(name = "products")
     public class Product {
         
         @Id

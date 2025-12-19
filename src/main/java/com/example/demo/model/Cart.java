@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "carts")
 public class Cart {
     
     @Id
@@ -34,7 +33,6 @@ public class Cart {
         updatedAt = LocalDateTime.now();
     }
     
-    // Constructors
     public Cart() {}
     
     public Cart(Long userId) {

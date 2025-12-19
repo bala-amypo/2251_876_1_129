@@ -3,7 +3,6 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cart_items")
 public class CartItem {
     
     @Id
@@ -21,7 +20,6 @@ public class CartItem {
     @Column(nullable = false)
     private Integer quantity;
     
-    // Constructors
     public CartItem() {}
     
     public CartItem(Cart cart, Product product, Integer quantity) {
@@ -30,7 +28,6 @@ public class CartItem {
         this.quantity = quantity;
     }
     
-    // Getters and Setters
     public Long getId() {
         return id;
     }

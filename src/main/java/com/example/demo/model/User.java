@@ -2,7 +2,6 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
 public class User {
     
     @Id
@@ -16,9 +15,8 @@ public class User {
     private String password;
     
     @Column(nullable = false)
-    private String role; // ADMIN, MERCHANT, CUSTOMER
+    private String role; 
     
-    // Constructors
     public User() {}
     
     public User(String email, String password, String role) {
@@ -27,7 +25,6 @@ public class User {
         this.role = role;
     }
     
-    // Getters and Setters
     public Long getId() {
         return id;
     }
