@@ -6,12 +6,13 @@ import com.example.demo.dto.RegisterRequest;
 import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.security.JwtTokenProvider;
+import com.example.demo.service.AuthService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class AuthServiceImpl {
+public class AuthServiceImpl implements AuthService {
     
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -25,6 +26,7 @@ public class AuthServiceImpl {
         this.jwtTokenProvider = jwtTokenProvider;
     }
     
+    @Override
     @Transactional
     public AuthResponse register(RegisterRequest request) {
         // Check if email already exists
@@ -46,6 +48,7 @@ public class AuthServiceImpl {
         return new AuthResponse(token, user.getId(), user.getEmail());
     }
     
+    @Override
     public AuthResponse login(AuthRequest request) {
         // Find user by email
         User user = userRepository.findByEmail(request.getEmail())

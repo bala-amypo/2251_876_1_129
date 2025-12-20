@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.model.BundleRule;
 import com.example.demo.repository.BundleRuleRepository;
+import com.example.demo.service.BundleRuleService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class BundleRuleServiceImpl {
+public class BundleRuleServiceImpl implements BundleRuleService {
     
     private final BundleRuleRepository bundleRuleRepository;
     
@@ -17,6 +18,7 @@ public class BundleRuleServiceImpl {
         this.bundleRuleRepository = bundleRuleRepository;
     }
     
+    @Override
     @Transactional
     public BundleRule createRule(BundleRule rule) {
         // Validate discount percentage is between 0 and 100
@@ -35,6 +37,7 @@ public class BundleRuleServiceImpl {
         return bundleRuleRepository.save(rule);
     }
     
+    @Override
     @Transactional
     public BundleRule updateRule(Long id, BundleRule rule) {
         BundleRule existing = bundleRuleRepository.findById(id)
@@ -59,15 +62,18 @@ public class BundleRuleServiceImpl {
         return bundleRuleRepository.save(existing);
     }
     
+    @Override
     public BundleRule getRuleById(Long id) {
         return bundleRuleRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Bundle rule not found"));
     }
     
+    @Override
     public List<BundleRule> getActiveRules() {
         return bundleRuleRepository.findByActiveTrue();
     }
     
+    @Override
     @Transactional
     public void deactivateRule(Long id) {
         BundleRule rule = bundleRuleRepository.findById(id)

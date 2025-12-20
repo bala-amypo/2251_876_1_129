@@ -2,6 +2,7 @@ package com.example.demo.service.impl;
 
 import com.example.demo.model.*;
 import com.example.demo.repository.*;
+import com.example.demo.service.DiscountService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
-public class DiscountServiceImpl {
+public class DiscountServiceImpl implements DiscountService {
     
     private final DiscountApplicationRepository discountApplicationRepository;
     private final BundleRuleRepository bundleRuleRepository;
@@ -27,6 +28,7 @@ public class DiscountServiceImpl {
         this.cartItemRepository = cartItemRepository;
     }
     
+    @Override
     @Transactional
     public List<DiscountApplication> evaluateDiscounts(Long cartId) {
         // Load cart
@@ -75,11 +77,13 @@ public class DiscountServiceImpl {
         return applications;
     }
     
+    @Override
     public DiscountApplication getApplicationById(Long id) {
         return discountApplicationRepository.findById(id)
                 .orElseThrow(() -> new jakarta.persistence.EntityNotFoundException("Discount application not found"));
     }
     
+    @Override
     public List<DiscountApplication> getApplicationsForCart(Long cartId) {
         return discountApplicationRepository.findByCartId(cartId);
     }
