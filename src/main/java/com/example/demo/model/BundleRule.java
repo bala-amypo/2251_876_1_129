@@ -1,26 +1,30 @@
 package com.example.demo.model;
+
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "bundle_rules")
 public class BundleRule {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(unique = true, nullable = false)
+    @Column(name = "rule_name", unique = true, nullable = false)
     private String ruleName;
     
-    @Column(nullable = false)
-    private String requiredProductIds; // CSV format: "10,12,15"
+    @Column(name = "required_product_ids", nullable = false)
+    private String requiredProductIds; // CSV format: "1,2,3"
     
-    @Column(nullable = false)
+    @Column(name = "discount_percentage", nullable = false)
     private Double discountPercentage;
     
     @Column(nullable = false)
     private Boolean active = true;
     
-    public BundleRule() {}
+    // Constructors
+    public BundleRule() {
+    }
     
     public BundleRule(String ruleName, String requiredProductIds, Double discountPercentage) {
         this.ruleName = ruleName;
@@ -29,6 +33,7 @@ public class BundleRule {
         this.active = true;
     }
     
+    // Getters and Setters
     public Long getId() {
         return id;
     }

@@ -3,6 +3,7 @@ package com.example.demo.model;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "cart_items")
 public class CartItem {
     
     @Id
@@ -13,14 +14,16 @@ public class CartItem {
     @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
     
     @Column(nullable = false)
     private Integer quantity;
     
-    public CartItem() {}
+    // Constructors
+    public CartItem() {
+    }
     
     public CartItem(Cart cart, Product product, Integer quantity) {
         this.cart = cart;
@@ -28,6 +31,7 @@ public class CartItem {
         this.quantity = quantity;
     }
     
+    // Getters and Setters
     public Long getId() {
         return id;
     }
