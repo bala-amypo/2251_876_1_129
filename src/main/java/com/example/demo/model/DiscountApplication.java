@@ -1,9 +1,11 @@
 package com.example.demo.model;
+
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "discount_applications")
 public class DiscountApplication {
     
     @Id
@@ -14,14 +16,14 @@ public class DiscountApplication {
     @JoinColumn(name = "cart_id", nullable = false)
     private Cart cart;
     
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "bundle_rule_id", nullable = false)
     private BundleRule bundleRule;
     
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(name = "discount_amount", nullable = false, precision = 10, scale = 2)
     private BigDecimal discountAmount;
     
-    @Column(name = "applied_at")
+    @Column(name = "applied_at", nullable = false)
     private LocalDateTime appliedAt;
     
     @PrePersist
@@ -29,14 +31,17 @@ public class DiscountApplication {
         appliedAt = LocalDateTime.now();
     }
     
-    public DiscountApplication() {}
+    // Constructors
+    public DiscountApplication() {
+    }
     
     public DiscountApplication(Cart cart, BundleRule bundleRule, BigDecimal discountAmount) {
         this.cart = cart;
         this.bundleRule = bundleRule;
         this.discountAmount = discountAmount;
     }
-
+    
+    // Getters and Setters
     public Long getId() {
         return id;
     }
