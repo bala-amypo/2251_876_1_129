@@ -15,9 +15,9 @@ import java.util.List;
 @Tag(name = "Product Management", description = "APIs for managing products")
 public class ProductController {
     
-    private final ProductServiceImpl productService;
+    private final ProductService productService;
     
-    public ProductController(ProductServiceImpl productService) {
+    public ProductController(ProductService productService) {
         this.productService = productService;
     }
     
