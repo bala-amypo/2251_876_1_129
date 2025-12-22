@@ -18,14 +18,15 @@ public class OpenApiConfig {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
+
                 .servers(List.of(
                         new Server().url("https://9058.pro604cr.amypo.ai/")
                 ))
+                
                 .addSecurityItem(
                         new SecurityRequirement().addList("Bearer Authentication")
                 )
 
-                // Security scheme definition
                 .components(new Components()
                         .addSecuritySchemes("Bearer Authentication",
                                 new SecurityScheme()

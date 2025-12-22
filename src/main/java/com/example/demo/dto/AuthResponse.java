@@ -6,7 +6,6 @@ public class AuthResponse {
     private Long userId;
     private String email;
     
-    // Constructors
     public AuthResponse() {
     }
     
@@ -16,7 +15,6 @@ public class AuthResponse {
         this.email = email;
     }
     
-    // Getters and Setters
     public String getToken() {
         return token;
     }
