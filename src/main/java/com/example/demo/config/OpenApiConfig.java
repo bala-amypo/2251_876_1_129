@@ -22,6 +22,11 @@ public class OpenApiConfig {
                         new Server().url("https://9058.pro604cr.amypo.ai/")
                 ))
 
+                .info(new Info()
+                        .title("E-Commerce Bundle & Save API")
+                        .version("1.0")
+                        .description("REST API for E-Commerce Bundle Discount Management System"))
+
                 .addSecurityItem(
                         new SecurityRequirement().addList("Bearer Authentication")
                 )
