@@ -21,7 +21,7 @@ public class Product {
     @Column(nullable = false)
     private String category;
     
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false)
     private BigDecimal price;
     
     @Column(nullable = false)
@@ -38,7 +38,6 @@ public class Product {
         }
     }
     
-    // Constructors
     public Product() {
     }
     
@@ -50,7 +49,6 @@ public class Product {
         this.active = true;
     }
     
-    // Getters and Setters
     public Long getId() {
         return id;
     }
