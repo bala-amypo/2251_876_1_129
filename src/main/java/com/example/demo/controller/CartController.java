@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Cart;
-import com.example.demo.service.impl.CartServiceImpl;
+import com.example.demo.service.CartService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Cart Management", description = "APIs for managing shopping carts")
 public class CartController {
     
-    private final CartServiceImpl cartService;
+    private final CartService cartService;
     
     public CartController(CartServiceImpl cartService) {
         this.cartService = cartService;
