@@ -27,9 +27,9 @@ public class Cart {
     protected void onCreate() {
         createdAt = LocalDateTime.now();
         updatedAt = LocalDateTime.now();
-        if (active == null) {
-            active = true;
-        }
+        // if (active == null) {
+        //     active = true;
+        // }
     }
     
     @PreUpdate
@@ -39,6 +39,7 @@ public class Cart {
     
     // Constructors
     public Cart() {
+        this.active = true;
     }
     
     public Cart(Long userId) {
