@@ -14,9 +14,9 @@ import java.util.List;
 @Tag(name = "Discount Management", description = "APIs for evaluating and managing bundle discounts")
 public class DiscountController {
     
-    private final DiscountServiceImpl discountService;
+    private final DiscountService discountService;
     
-    public DiscountController(DiscountServiceImpl discountService) {
+    public DiscountController(DiscountService discountService) {
         this.discountService = discountService;
     }
     
