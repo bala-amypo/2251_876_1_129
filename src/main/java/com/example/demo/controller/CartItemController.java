@@ -15,9 +15,9 @@ import java.util.List;
 @Tag(name = "Cart Item Management", description = "APIs for managing items in shopping carts")
 public class CartItemController {
     
-    private final CartItemServiceImpl cartItemService;
+    private final CartItemService cartItemService;
     
-    public CartItemController(CartItemServiceImpl cartItemService) {
+    public CartItemController(CartItemService cartItemService) {
         this.cartItemService = cartItemService;
     }
     
