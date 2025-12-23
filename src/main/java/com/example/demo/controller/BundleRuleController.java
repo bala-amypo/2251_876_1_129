@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.BundleRule;
-import com.example.demo.service.impl.BundleRuleServiceImpl;
+import com.example.demo.service.BundleRuleService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import java.util.List;
 @Tag(name = "Bundle Rule Management", description = "APIs for managing bundle discount rules")
 public class BundleRuleController {
     
-    private final BundleRuleServiceImpl bundleRuleService;
+    private final BundleRuleService bundleRuleService;
     
     public BundleRuleController(BundleRuleServiceImpl bundleRuleService) {
         this.bundleRuleService = bundleRuleService;
