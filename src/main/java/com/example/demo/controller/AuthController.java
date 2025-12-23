@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.AuthRequest;
 import com.example.demo.dto.AuthResponse;
 import com.example.demo.dto.RegisterRequest;
-import com.example.demo.service.impl.AuthServiceImpl;
+import com.example.demo.service.AuthServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Authentication", description = "APIs for user authentication")
 public class AuthController {
     
-    private final AuthServiceImpl authService;
+    private final AuthService authService;
     
-    public AuthController(AuthServiceImpl authService) {
+    public AuthController(AuthService authService) {
         this.authService = authService;
     }
     
