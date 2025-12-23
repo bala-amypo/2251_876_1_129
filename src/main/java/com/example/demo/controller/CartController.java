@@ -15,7 +15,7 @@ public class CartController {
     
     private final CartService cartService;
     
-    public CartController(CartServiceImpl cartService) {
+    public CartController(CartService cartService) {
         this.cartService = cartService;
     }
     
