@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.DiscountApplication;
-import com.example.demo.service.DiscountServiceImpl;
+import com.example.demo.service.DiscountService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
