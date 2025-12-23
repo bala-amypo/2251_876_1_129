@@ -34,7 +34,7 @@ public class CartServiceImpl implements CartService {
     @Override
     public Cart getActiveCartForUser(Long userId) {
         return cartRepository.findByUserIdAndActiveTrue(userId)
-                .orElseThrow(() -> new EntityNotFoundException("Active cart not found for user"));
+                .orElseThrow(() -> new EntityNotFoundException("Active cart not found"));
     }
     
     @Override
