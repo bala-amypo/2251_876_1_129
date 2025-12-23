@@ -17,7 +17,7 @@ public class BundleRuleController {
     
     private final BundleRuleService bundleRuleService;
     
-    public BundleRuleController(BundleRuleServiceImpl bundleRuleService) {
+    public BundleRuleController(BundleRuleService bundleRuleService) {
         this.bundleRuleService = bundleRuleService;
     }
     
