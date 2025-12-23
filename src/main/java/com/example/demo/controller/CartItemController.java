@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.CartItem;
-import com.example.demo.service.impl.CartItemServiceImpl;
+import com.example.demo.service.CartItemService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
