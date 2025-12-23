@@ -43,7 +43,7 @@ public class CartItemServiceImpl implements CartItemService {
         
         // Check if cart is active
         if (!cart.getActive()) {
-            throw new IllegalArgumentException("Cannot add items to inactive carts");
+            throw new IllegalArgumentException("Items can be added only to active carts");
         }
         
         // Load product
