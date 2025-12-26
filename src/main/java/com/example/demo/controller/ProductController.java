@@ -23,7 +23,7 @@ public class ProductController {
         this.productService = productService;
     }
     
-    @PreAuthorize("hasRole('CUSTOMER')")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     @Operation(summary = "Create a new product")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
@@ -31,6 +31,8 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
     
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     @Operation(summary = "Update an existing product")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product product) {
@@ -38,20 +40,23 @@ public class ProductController {
         return ResponseEntity.ok(updated);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}")
     @Operation(summary = "Get product by ID")
     public ResponseEntity<Product> getProduct(@PathVariable Long id) {
         Product product = productService.getProductById(id);
         return ResponseEntity.ok(product);
     }
-    
+
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     @Operation(summary = "Get all products")
     public ResponseEntity<List<Product>> getAllProducts() {
         List<Product> products = productService.getAllProducts();
         return ResponseEntity.ok(products);
     }
-    
+
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}/deactivate")
     @Operation(summary = "Deactivate a product")
     public ResponseEntity<Void> deactivateProduct(@PathVariable Long id) {

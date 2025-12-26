@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class BundleRuleController {
         this.bundleRuleService = bundleRuleService;
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     @Operation(summary = "Create a new bundle rule")
     public ResponseEntity<BundleRule> createRule(@RequestBody BundleRule rule) {
@@ -28,6 +30,7 @@ public class BundleRuleController {
         return ResponseEntity.status(HttpStatus.CREATED).body(created);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     @Operation(summary = "Update an existing bundle rule")
     public ResponseEntity<BundleRule> updateRule(@PathVariable Long id, @RequestBody BundleRule rule) {
@@ -35,6 +38,7 @@ public class BundleRuleController {
         return ResponseEntity.ok(updated);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}")
     @Operation(summary = "Get bundle rule by ID")
     public ResponseEntity<BundleRule> getRule(@PathVariable Long id) {
@@ -42,6 +46,7 @@ public class BundleRuleController {
         return ResponseEntity.ok(rule);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/active")
     @Operation(summary = "Get all active bundle rules")
     public ResponseEntity<List<BundleRule>> getActiveRules() {
@@ -49,6 +54,7 @@ public class BundleRuleController {
         return ResponseEntity.ok(rules);
     }
     
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}/deactivate")
     @Operation(summary = "Deactivate a bundle rule")
     public ResponseEntity<Void> deactivateRule(@PathVariable Long id) {
