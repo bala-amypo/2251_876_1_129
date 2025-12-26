@@ -19,6 +19,7 @@ public class CartController {
         this.cartService = cartService;
     }
     
+    @PreAuthorize("hasRole('CUSTOMER')")
     @PostMapping("/{userId}")
     @Operation(summary = "Create a cart for a user")
     public ResponseEntity<Cart> createCart(@PathVariable Long userId) {
