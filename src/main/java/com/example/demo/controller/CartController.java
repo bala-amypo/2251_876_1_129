@@ -21,7 +21,6 @@ public class CartController {
         this.cartService = cartService;
     }
     
-    @PreAuthorize("hasRole('CUSTOMER')")
     @PostMapping("/{userId}")
     @Operation(summary = "Create a cart for a user")
     public ResponseEntity<Cart> createCart(@PathVariable Long userId) {
@@ -29,7 +28,6 @@ public class CartController {
         return ResponseEntity.status(HttpStatus.CREATED).body(cart);
     }
     
-    @PreAuthorize("hasRole('CUSTOMER')")
     @GetMapping("/{id}")
     @Operation(summary = "Get cart by ID")
     public ResponseEntity<Cart> getCart(@PathVariable Long id) {
@@ -37,7 +35,6 @@ public class CartController {
         return ResponseEntity.ok(cart);
     }
     
-    @PreAuthorize("hasRole('CUSTOMER')")
     @GetMapping("/user/{userId}")
     @Operation(summary = "Get active cart for a user")
     public ResponseEntity<Cart> getCartByUser(@PathVariable Long userId) {
@@ -45,7 +42,6 @@ public class CartController {
         return ResponseEntity.ok(cart);
     }
     
-    @PreAuthorize("hasRole('CUSTOMER')")
     @PutMapping("/{id}/deactivate")
     @Operation(summary = "Deactivate a cart")
     public ResponseEntity<Void> deactivateCart(@PathVariable Long id) {

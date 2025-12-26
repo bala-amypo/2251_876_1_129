@@ -7,6 +7,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.access.prepost.PreAuthorize;
+
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class ProductController {
         this.productService = productService;
     }
     
+    @PreAuthorize("hasRole('CUSTOMER')")
     @PostMapping
     @Operation(summary = "Create a new product")
     public ResponseEntity<Product> createProduct(@RequestBody Product product) {
