@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
-@JsonIgnore
 @Table(name = "discount_applications")
 public class DiscountApplication {
     
@@ -16,6 +15,7 @@ public class DiscountApplication {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cart_id", nullable = false)
+    @JsonIgnore
     private Cart cart;
     
     @ManyToOne(fetch = FetchType.EAGER)
