@@ -19,7 +19,6 @@ public class User {
     @Column(nullable = false)
     private String role; // ADMIN, MERCHANT, CUSTOMER
     
-    // Constructors
     public User() {
     }
     
@@ -29,7 +28,6 @@ public class User {
         this.role = role;
     }
     
-    // Getters and Setters
     public Long getId() {
         return id;
     }
